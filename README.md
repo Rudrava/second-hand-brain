@@ -1,6 +1,6 @@
 # SECOND HAND BRAIN 🧠
 
-## **This app is to store 🏪 the things that your first hand brain 🧠 cant store !! 👀 😢**
+## **This app is to store the things that your first hand brain 🧠 cant store !! 👀 😢**
 
 ## IDEA
 
