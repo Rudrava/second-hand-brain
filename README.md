@@ -11,14 +11,14 @@
 
 ---
 
-## TECH
+## TECH
 
 -   REACT
 -   FIREBASE
 
 ---
 
-## TODO
+## TODO
 
 -   [x] auth
 -   [ ] creating nodes
