@@ -21,7 +21,8 @@
 ## TODO
 
 -   [x] auth
--   [ ] creating nodes
+-   [x] creating notes
+-   [x] firebase security
 -   [ ] md support
 -   [ ] tagging
 -   [ ] heading / context split

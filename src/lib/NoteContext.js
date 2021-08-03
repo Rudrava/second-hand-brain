@@ -7,7 +7,7 @@ const EditNoteContext = createContext(null);
 
 function NoteProvider({ children }) {
     const [value, loading, error] = useCollection(
-        Ref.notes.orderBy("createdAt"),
+        Ref.notes().orderBy("createdAt"),
         {
             snapshotListenOptions: { includeMetadataChanges: true },
         }

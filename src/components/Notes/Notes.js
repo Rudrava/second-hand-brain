@@ -6,7 +6,7 @@ const Notes = () => {
     return (
         <StyledNotes>
             {!loading &&
-                value.map((note) => <Note key={note.id} note={note} />)}
+                value?.map((note) => <Note key={note.id} note={note} />)}
         </StyledNotes>
     );
 };

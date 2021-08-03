@@ -53,23 +53,26 @@ export const Auth = {
     },
 };
 
+let uid;
+auth.onAuthStateChanged((u) => {
+    uid = u.uid;
+});
+
 // db refs
 
 export const Ref = {
     log: db.collection("log"),
-    notes: db.collection("notes"),
+    notes: () => db.collection(`/users/${uid}/notes`),
 };
 
 export const Queries = {
     addLog: (msg) => {
         Ref.log.add({ msg });
     },
-    addNote: async (data) => {
-        console.log({ ...data, createdAt: currTime });
-        return await Ref.notes.add({ ...data, createdAt: currTime });
-    },
+    addNote: async (data) =>
+        await Ref.notes().add({ ...data, createdAt: currTime }),
     editNote: async (data) => {
-        return await Ref.notes
+        return await Ref.notes()
             .doc(data.id)
             .update({ ...data, updatedAt: currTime });
     },
