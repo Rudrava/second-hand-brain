@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import ProfileComp from "./ProfileComp";
 import useUser from "lib/UserContext";
-import { signIn } from "lib/firebase";
+import { Auth } from "lib/firebase";
 
 const Nav = () => {
     const { user, loading } = useUser();
@@ -21,7 +21,7 @@ const Nav = () => {
                 ) : (
                     <>
                         <ProfileComp user={user} />
-                        <Button label="Log out" onClick={signIn.signOut} />
+                        <Button label="Log out" onClick={Auth.signOut} />
                     </>
                 )}
             </div>

@@ -5,7 +5,7 @@ import Github from "images/github.svg";
 import { Email, Passwd } from "components/Inputs";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
-import { signIn } from "lib/firebase";
+import { Auth } from "lib/firebase";
 
 const Signup = () => {
     return (
@@ -16,13 +16,13 @@ const Signup = () => {
                     icon={Google}
                     label="Sign up with google"
                     style={{ width: "100%" }}
-                    onClick={signIn.signInWithGoogle}
+                    onClick={Auth.signInWithGoogle}
                 />
                 <Button
                     icon={Github}
                     label="Sign up with github"
                     style={{ width: "100%" }}
-                    onClick={signIn.signInWithGithub}
+                    onClick={Auth.signInWithGithub}
                 />
                 <Divider>OR</Divider>
                 <Formik
@@ -32,7 +32,7 @@ const Signup = () => {
                         confirmPassword: "",
                     }}
                     onSubmit={({ email, password }) => {
-                        signIn.signUpWithEmail({ email, password });
+                        Auth.signUpWithEmail({ email, password });
                     }}
                 >
                     {({

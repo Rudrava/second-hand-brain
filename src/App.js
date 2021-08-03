@@ -24,7 +24,7 @@ function App() {
                     <Root />
                 </PrivateRoute>
             </Switch>
-            <Toaster position="top-right" reverseOrder={true} gutter={12} />
+            <Toaster />
         </div>
     );
 }

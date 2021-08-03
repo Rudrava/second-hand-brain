@@ -18,10 +18,16 @@ if (!firebase.apps.length) {
 }
 
 export const auth = firebase.auth();
+
 export const db = firebase.firestore();
+
 export const messagesRef = db.collection("messages");
 
-export const signIn = {
+export const currTime = firebase.firestore.FieldValue.serverTimestamp();
+
+// auth methods
+
+export const Auth = {
     signInWithGoogle: () => {
         auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(
             (err) => toast.error(err.message)
@@ -47,4 +53,27 @@ export const signIn = {
     },
 };
 
-export const currTime = firebase.firestore.FieldValue.serverTimestamp();
+// db refs
+
+export const Ref = {
+    log: db.collection("log"),
+    notes: db.collection("notes"),
+};
+
+export const Queries = {
+    addLog: (msg) => {
+        Ref.log.add({ msg });
+    },
+    addNote: async (data) => {
+        console.log({ ...data, createdAt: currTime });
+        return await Ref.notes.add({ ...data, createdAt: currTime });
+    },
+    editNote: async (data) => {
+        return await Ref.notes
+            .doc(data.id)
+            .update({ ...data, updatedAt: currTime });
+    },
+    getNotes: async (data) => {
+        return await Ref.notes.onSnapshot();
+    },
+};

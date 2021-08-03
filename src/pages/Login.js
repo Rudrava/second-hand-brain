@@ -5,7 +5,7 @@ import Google from "images/google.svg";
 import Github from "images/github.svg";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
-import { signIn } from "lib/firebase";
+import { Auth } from "lib/firebase";
 
 const Login = () => {
     return (
@@ -16,13 +16,13 @@ const Login = () => {
                     icon={Google}
                     label="Log in with google"
                     style={{ width: "100%" }}
-                    onClick={signIn.signInWithGoogle}
+                    onClick={Auth.signInWithGoogle}
                 />
                 <Button
                     icon={Github}
                     label="Log in with github"
                     style={{ width: "100%" }}
-                    onClick={signIn.signInWithGithub}
+                    onClick={Auth.signInWithGithub}
                 />
                 <Divider>OR</Divider>
                 <Formik
@@ -31,7 +31,7 @@ const Login = () => {
                         password: "",
                     }}
                     onSubmit={({ email, password }) => {
-                        signIn.logInWithEmail({ email, password });
+                        Auth.logInWithEmail({ email, password });
                     }}
                 >
                     {({

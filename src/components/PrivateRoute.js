@@ -25,7 +25,7 @@ const PrivateRoute = ({ path, children }) => {
                             }}
                         >
                             You are not logged in please
-                            <Link to="Login" style={{ display: "inline" }}>
+                            <Link to="/login" style={{ display: "inline" }}>
                                 Login
                             </Link>
                             to continue
